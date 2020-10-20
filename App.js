@@ -1,21 +1,26 @@
 import React from "react";
-// import stays from "./stays.json";
 import StaysComponent from "./StaysComponents";
-import searchSvg from "./icons/search.svg";
+import FormComponents from "./FormComponent";
+import "./index.css";
 
-function App() {
-  return (
-    <section>
-      <h1>
-        <form>
-          <label>Windbnb</label>
-          <input type="text" placeholder="Helsinki, Finland" />
-          <input type="text" placeholder="Add guests" />
-          <button type="submit">{searchSvg}</button>
-        </form>
-      </h1>
-      <StaysComponent />
-    </section>
-  );
+
+class App extends React.Component {
+  
+  render() {
+    return (
+      <section>
+
+      <FormComponents />
+
+        <header className="myheading">
+          <h2>Stays in Finland</h2>
+          <span>12+ Stays</span>
+        </header>
+
+        <StaysComponent />
+      
+      </section>
+    );
+  }
 }
 export default App;

@@ -1,0 +1,87 @@
+@import "./modal.css";
+
+img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+
+label {
+  color: #EB5757;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.btn {
+  height: 55px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+input.btn:nth-of-type(2)::placeholder {
+  color: #BDBDBD;
+}
+
+input.btn:nth-of-type(1) {
+  border-radius: 16px 0 0 16px;
+}
+
+button.btn {
+  padding: 10px;
+  padding-bottom: 48px;
+  background-color: #ffffff;
+  border-radius: 0 16px 16px 0;
+}
+
+.myheading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+aside button {
+  border: 1px solid #4F4F4F;
+  box-sizing: border-box;
+  border-radius: 12px;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  font-weight: 700;
+  height: 25px;
+}
+
+.numBed {
+  color: #828282;
+}
+
+
+@media (min-width: 1440px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    }
+  .main-container {
+      margin-right: 30px;
+    }
+    
+aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+}
