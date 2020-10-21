@@ -28647,7 +28647,10 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       show: false,
-      class: ""
+      class: "",
+      value: "",
+      sourceData: [],
+      filterData: _stays.default
     });
 
     _defineProperty(_assertThisInitialized(_this), "showModal", function (e) {
@@ -28664,11 +28667,25 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       console.log("close modal");
 
-      if (key === "escape") {
-        _this.setState({
-          show: false
-        });
-      }
+      _this.setState({
+        show: false
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
+      _this.setState({
+        sourceData: _stays.default
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterLists", function (e) {
+      var updatedList = _this.state.sourceData.filter(function (item) {
+        return item.city.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
+      });
+
+      _this.setState({
+        filterData: updatedList
+      });
     });
 
     return _this;
@@ -28677,6 +28694,34 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
   _createClass(FormComponents, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      var searchBox = /*#__PURE__*/_react.default.createElement("input", {
+        className: "btn",
+        type: "text",
+        placeholder: "Helsinki, Finland",
+        onChange: this.handleChange,
+        onClick: this.filterLists
+      });
+
+      var selectBox = this.state.filterData.map(function (location) {
+        return /*#__PURE__*/_react.default.createElement("select", {
+          key: location.title,
+          className: "btn",
+          name: location.city,
+          id: location.country,
+          onChange: _this2.handleChange,
+          onClick: _this2.filterLists
+        }, "Location", /*#__PURE__*/_react.default.createElement("option", {
+          value: location.country
+        }, "Helsinki in Finland"), /*#__PURE__*/_react.default.createElement("option", {
+          value: location.country
+        }, "Turku in Finland"), /*#__PURE__*/_react.default.createElement("option", {
+          value: location.country
+        }, "Vaasa in Finland"), /*#__PURE__*/_react.default.createElement("option", {
+          value: location.country
+        }, "Oulu in Finland"));
+      });
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         height: "24",
@@ -28690,23 +28735,7 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
         d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
       })), "Windbnb"), /*#__PURE__*/_react.default.createElement("div", {
         className: "btns"
-      }, /*#__PURE__*/_react.default.createElement("select", {
-        className: "btn",
-        name: location.city,
-        id: location.country
-      }, "Location", /*#__PURE__*/_react.default.createElement("option", {
-        value: location.country
-      }, "Helsinki in Finland"), /*#__PURE__*/_react.default.createElement("option", {
-        value: location.country
-      }, "Turku in Finland"), /*#__PURE__*/_react.default.createElement("option", {
-        value: location.country
-      }, "Vaasa in Finland"), /*#__PURE__*/_react.default.createElement("option", {
-        value: location.country
-      }, "Oulu in Finland")), ")", /*#__PURE__*/_react.default.createElement("input", {
-        className: "btn",
-        type: "text",
-        placeholder: "Helsinki, Finland"
-      }), /*#__PURE__*/_react.default.createElement("input", {
+      }, selectBox, searchBox, /*#__PURE__*/_react.default.createElement("input", {
         className: "btn",
         type: "text",
         placeholder: "Add guests"
@@ -28734,8 +28763,7 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
         className: "modals-heading"
       }, /*#__PURE__*/_react.default.createElement("h4", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
         className: "closeBtn",
-        onKeyDown: this.handleClose,
-        onClick: this.handleClose
+        onClick: this.hideModal
       }, "X"))));
     }
   }]);
@@ -28850,7 +28878,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55597" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49688" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -6,7 +6,13 @@ const modals = document.createElement("div.modal");
 document.body.appendChild(modals);
 
 class FormComponents extends React.Component {
-  state = { show: false, class: "" };
+  state = {
+    show: false,
+    class: "",
+    value: "",
+    sourceData: [],
+    filterData: stays
+  };
 
   showModal = (e) => {
     e.preventDefault();
@@ -17,12 +23,51 @@ class FormComponents extends React.Component {
   hideModal = (e) => {
     e.preventDefault();
     console.log("close modal");
-    if (key === "escape") {
-      this.setState({ show: false });
-    }
+    this.setState({ show: false });
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      sourceData: stays,
+    });
+  };
+
+  filterLists = (e) => {
+    const updatedList = this.state.sourceData.filter((item) => {
+      return (
+        item.city.toLowerCase().search(e.target.value.toLowerCase()) !== -1
+      );
+    });
+    this.setState({ filterData: updatedList });
   };
 
   render() {
+    const searchBox = (
+      <input
+        className="btn"
+        type="text"
+        placeholder="Helsinki, Finland"
+        onChange={this.handleChange}
+        onClick={this.filterLists}
+      />
+    );
+    const selectBox = this.state.filterData.map((location) => (
+      <select
+        key={location.title}
+        className="btn"
+        name={location.city}
+        id={location.country}
+        onChange={this.handleChange}
+        onClick={this.filterLists}
+      >
+        Location
+        <option value={location.country}>Helsinki in Finland</option>
+        <option value={location.country}>Turku in Finland</option>
+        <option value={location.country}>Vaasa in Finland</option>
+        <option value={location.country}>Oulu in Finland</option>
+      </select>
+    ));
+
     return (
       <div>
         <form>
@@ -41,19 +86,31 @@ class FormComponents extends React.Component {
           </label>
 
           <div className="btns">
-            <select className="btn" name={location.city} id={location.country}>
-              Location
-              <option value={location.country}>Helsinki in Finland</option>
-              <option value={location.country}>Turku in Finland</option>
-              <option value={location.country}>Vaasa in Finland</option>
-              <option value={location.country}>Oulu in Finland</option>
-            </select>
-            )
-            <input
+            {selectBox}
+            {/* <select
+                    key={location.city}
+                    className="btn"
+                    name={location.city}
+                    id={location.country}
+                    onChange={this.handleChange}
+                    onClick={this.filterLists}
+                  >
+                    Location
+                    <option value={location.country.value}>
+                      Helsinki in Finland
+                    </option>
+                    <option value={location.country.value}>Turku in Finland</option>
+                    <option value={location.country.value}>Vaasa in Finland</option>
+                    <option value={location.country}>Oulu in Finland</option>
+                  </select>
+                ) */}
+            {searchBox}
+            {/* <input
               className="btn"
               type="text"
               placeholder="Helsinki, Finland"
-            />
+            /> */}
+
             <input className="btn" type="text" placeholder="Add guests" />
             <button
               className="btn"
@@ -77,11 +134,7 @@ class FormComponents extends React.Component {
         <Modal show={this.state.show} handleClose={this.hideModal}>
           <header className="modals-heading">
             <h4>Edit your search</h4>
-            <button
-              className="closeBtn"
-              onKeyDown={this.handleClose}
-              onClick={this.handleClose}
-            >
+            <button className="closeBtn" onClick={this.hideModal}>
               X
             </button>
           </header>
