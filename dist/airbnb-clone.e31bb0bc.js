@@ -28427,7 +28427,50 @@ module.exports = [{
   "beds": 3,
   "photo": "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80"
 }];
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{}],"Place.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Place(props) {
+  return /*#__PURE__*/_react.default.createElement("article", {
+    key: props.title,
+    className: "main-container"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: props.photo,
+    key: props.title
+  }), /*#__PURE__*/_react.default.createElement("aside", null, /*#__PURE__*/_react.default.createElement("button", {
+    type: props.superHost ? "" : "hidden",
+    key: props.title
+  }, "Super Host"), /*#__PURE__*/_react.default.createElement("p", {
+    className: "numBed"
+  }, props.type, ".", props.beds, " beds"), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    enableBackground: "new 0 0 24 24",
+    viewBox: "0 0 24 24",
+    fill: "red",
+    width: "18px",
+    height: "18px"
+  }, /*#__PURE__*/_react.default.createElement("g", null, /*#__PURE__*/_react.default.createElement("rect", {
+    fill: "none",
+    height: "24",
+    width: "24",
+    x: "0"
+  }), /*#__PURE__*/_react.default.createElement("polygon", {
+    points: "14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"
+  }))), props.rating)), /*#__PURE__*/_react.default.createElement("h4", null, props.title));
+}
+
+var _default = Place;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -28504,58 +28547,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./modal.css":"modal.css","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"StaysComponents.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _stays = _interopRequireDefault(require("./stays.json"));
-
-require("./index.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function StaysComponent() {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "container"
-  }, _stays.default.map(function (data) {
-    return /*#__PURE__*/_react.default.createElement("article", {
-      key: data.title,
-      className: "main-container"
-    }, /*#__PURE__*/_react.default.createElement("img", {
-      src: data.photo,
-      key: data.title
-    }), /*#__PURE__*/_react.default.createElement("aside", null, /*#__PURE__*/_react.default.createElement("button", {
-      type: data.superHost ? "" : "hidden",
-      key: data.title
-    }, "Super Host"), /*#__PURE__*/_react.default.createElement("p", {
-      className: "numBed"
-    }, data.type, ".", data.beds, " beds"), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("svg", {
-      xmlns: "http://www.w3.org/2000/svg",
-      enableBackground: "new 0 0 24 24",
-      viewBox: "0 0 24 24",
-      fill: "red",
-      width: "18px",
-      height: "18px"
-    }, /*#__PURE__*/_react.default.createElement("g", null, /*#__PURE__*/_react.default.createElement("rect", {
-      fill: "none",
-      height: "24",
-      width: "24",
-      x: "0"
-    }), /*#__PURE__*/_react.default.createElement("polygon", {
-      points: "14.43,10 12,2 9.57,10 2,10 8.18,14.41 5.83,22 12,17.31 18.18,22 15.83,14.41 22,10"
-    }))), data.rating)), /*#__PURE__*/_react.default.createElement("h4", null, data.title));
-  }));
-}
-
-var _default = StaysComponent;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./index.css":"index.css"}],"Modal.js":[function(require,module,exports) {
+},{"./modal.css":"modal.css","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Modal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28566,14 +28558,14 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 require("./index.css");
-
-var _StaysComponents = _interopRequireDefault(require("./StaysComponents"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Modal = function Modal(_ref) {
   var show = _ref.show,
-      children = _ref.children;
+      children = _ref.children,
+      selectBox = _ref.selectBox,
+      searchBox = _ref.searchBox;
   var showHideClassName = show ? "modal display-block" : "modal display-none";
   return /*#__PURE__*/_react.default.createElement("div", {
     className: showHideClassName
@@ -28581,12 +28573,12 @@ var Modal = function Modal(_ref) {
     className: "modal-main"
   }, children, /*#__PURE__*/_react.default.createElement("div", {
     className: "form"
-  }, /*#__PURE__*/_react.default.createElement(_StaysComponents.default, null))));
+  }, selectBox, searchBox)));
 };
 
 var _default = Modal;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./index.css":"index.css","./StaysComponents":"StaysComponents.js"}],"FormComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./index.css":"index.css"}],"FormComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28595,8 +28587,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
-
-var _stays = _interopRequireDefault(require("./stays.json"));
 
 var _Modal = _interopRequireDefault(require("./Modal"));
 
@@ -28648,9 +28638,7 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       show: false,
       class: "",
-      value: "",
-      sourceData: [],
-      filterData: _stays.default
+      value: ""
     });
 
     _defineProperty(_assertThisInitialized(_this), "showModal", function (e) {
@@ -28672,57 +28660,13 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
-      _this.setState({
-        sourceData: _stays.default
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "filterLists", function (e) {
-      var updatedList = _this.state.sourceData.filter(function (item) {
-        return item.city.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
-      });
-
-      _this.setState({
-        filterData: updatedList
-      });
-    });
-
     return _this;
   }
 
   _createClass(FormComponents, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      var searchBox = /*#__PURE__*/_react.default.createElement("input", {
-        className: "btn",
-        type: "text",
-        placeholder: "Helsinki, Finland",
-        onChange: this.handleChange,
-        onClick: this.filterLists
-      });
-
-      var selectBox = this.state.filterData.map(function (location) {
-        return /*#__PURE__*/_react.default.createElement("select", {
-          key: location.title,
-          className: "btn",
-          name: location.city,
-          id: location.country,
-          onChange: _this2.handleChange,
-          onClick: _this2.filterLists
-        }, "Location", /*#__PURE__*/_react.default.createElement("option", {
-          value: location.country
-        }, "Helsinki in Finland"), /*#__PURE__*/_react.default.createElement("option", {
-          value: location.country
-        }, "Turku in Finland"), /*#__PURE__*/_react.default.createElement("option", {
-          value: location.country
-        }, "Vaasa in Finland"), /*#__PURE__*/_react.default.createElement("option", {
-          value: location.country
-        }, "Oulu in Finland"));
-      });
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("svg", {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         height: "24",
         fill: "#EB5757",
@@ -28735,28 +28679,28 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
         d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
       })), "Windbnb"), /*#__PURE__*/_react.default.createElement("div", {
         className: "btns"
-      }, selectBox, searchBox, /*#__PURE__*/_react.default.createElement("input", {
+      }, /*#__PURE__*/_react.default.createElement("select", {
+        key: location.title,
+        className: "btn",
+        name: location.city,
+        value: this.location,
+        id: location.city,
+        onChange: this.onChange
+      }, "Location", /*#__PURE__*/_react.default.createElement("option", {
+        value: "Helsinki"
+      }, "Helsinki"), /*#__PURE__*/_react.default.createElement("option", {
+        value: "Turku"
+      }, "Turku"), /*#__PURE__*/_react.default.createElement("option", {
+        value: "Vaasa"
+      }, "Vaasa"), /*#__PURE__*/_react.default.createElement("option", {
+        value: "Oulu"
+      }, "Oulu")), ")", /*#__PURE__*/_react.default.createElement("input", _defineProperty({
         className: "btn",
         type: "text",
-        placeholder: "Add guests"
-      }), /*#__PURE__*/_react.default.createElement("button", {
-        className: "btn",
-        onClick: this.showModal,
-        style: {
-          backgroundColor: "white"
-        }
-      }, /*#__PURE__*/_react.default.createElement("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        fill: "#EB5757",
-        height: "24",
-        viewBox: "0 0 24 24",
-        width: "24"
-      }, /*#__PURE__*/_react.default.createElement("path", {
-        d: "M0 0h24v24H0z",
-        fill: "none"
-      }), /*#__PURE__*/_react.default.createElement("path", {
-        d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-      }))))), /*#__PURE__*/_react.default.createElement(_Modal.default, {
+        placeholder: "Helsinki, Finland",
+        onChange: this.handleChange,
+        onClick: this.filterLists
+      }, "placeholder", "Add guests")))), /*#__PURE__*/_react.default.createElement(_Modal.default, {
         show: this.state.show,
         handleClose: this.hideModal
       }, /*#__PURE__*/_react.default.createElement("header", {
@@ -28773,7 +28717,109 @@ var FormComponents = /*#__PURE__*/function (_React$Component) {
 
 var _default = FormComponents;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./Modal":"Modal.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Modal":"Modal.js"}],"StaysComponents.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _stays = _interopRequireDefault(require("./stays.json"));
+
+var _Place = _interopRequireDefault(require("./Place"));
+
+var _FormComponent = _interopRequireDefault(require("./FormComponent"));
+
+require("./index.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function StaysComponent() {
+  var _useState = (0, _react.useState)(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      location = _useState2[0],
+      setLocation = _useState2[1];
+
+  var _useState3 = (0, _react.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      data = _useState4[0],
+      setData = _useState4[1];
+
+  function formData(e) {
+    e.preventDefault();
+    setData(_stays.default);
+  }
+
+  var filterData = data.filter(function (place) {
+    return place.city == location;
+  });
+  console.log(filterData);
+
+  var mappingLocation = _stays.default.map(function (data) {
+    return /*#__PURE__*/_react.default.createElement(_Place.default, _extends({
+      key: data.title
+    }, data));
+  });
+
+  var storingTheMapData = filterData.map(function (location) {
+    return /*#__PURE__*/_react.default.createElement(_Place.default, _extends({
+      key: location.title
+    }, location));
+  });
+  var ShowFilteredData = location === "" ? mappingLocation : storingTheMapData;
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: formData
+  }, /*#__PURE__*/_react.default.createElement(_FormComponent.default, {
+    location: location,
+    onChange: function onChange(e) {
+      return setLocation(e.target.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit",
+    className: "btn",
+    style: {
+      backgroundColor: "white"
+    }
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "#EB5757",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, ShowFilteredData));
+}
+
+var _default = StaysComponent;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./stays.json":"stays.json","./Place":"Place.js","./FormComponent":"FormComponent.js","./index.css":"index.css"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28827,7 +28873,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement(_FormComponent.default, null), /*#__PURE__*/_react.default.createElement("header", {
+      return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("header", {
         className: "myheading"
       }, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland"), /*#__PURE__*/_react.default.createElement("span", null, "12+ Stays")), /*#__PURE__*/_react.default.createElement(_StaysComponents.default, null));
     }
@@ -28878,7 +28924,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49688" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49686" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
