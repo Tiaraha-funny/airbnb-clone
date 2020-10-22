@@ -28470,105 +28470,6 @@ function Place(props) {
 
 var _default = Place;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"FormComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// import Modal from "./Modal";
-function FormComponents(_ref) {
-  var location = _ref.location,
-      gest = _ref.gest;
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    fill: "#EB5757",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-  })), "Windbnb"), /*#__PURE__*/_react.default.createElement("div", {
-    className: "btns"
-  }, /*#__PURE__*/_react.default.createElement("select", {
-    key: location.title,
-    className: "btn",
-    name: location.city,
-    id: location.city,
-    onChange: location
-  }, "Location", /*#__PURE__*/_react.default.createElement("option", {
-    value: "Helsinki"
-  }, "Helsinki"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku"
-  }, "Turku"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Vaasa"
-  }, "Vaasa"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu"
-  }, "Oulu")), ")", /*#__PURE__*/_react.default.createElement("input", _defineProperty({
-    className: "btn",
-    type: "number",
-    placeholder: "Helsinki, Finland",
-    onChange: gest
-  }, "placeholder", "Add guests"))), /*#__PURE__*/_react.default.createElement("button", {
-    type: "submit",
-    className: "btn",
-    style: {
-      backgroundColor: "white"
-    }
-  }, /*#__PURE__*/_react.default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "#EB5757",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-  })))));
-}
-
-var _default = FormComponents; // const modals = document.createElement("div.modal");
-// document.body.appendChild(modals);
-// state = {
-//   show: false,
-//   class: "",
-//   value: "",
-// };
-// const  showModal = (e) => {
-//     e.preventDefault();
-//     console.log("Open modal");
-//     setState({ show: true, class: "open" });
-//   };
-// const  hideModal = (e) => {
-//     e.preventDefault();
-//     console.log("close modal");
-//     setState({ show: false });
-//   };
-
-exports.default = _default;
-{
-  /* <Modal handleClose={hideModal}>
-   <header className="modals-heading">
-     <h4>Edit your search</h4>
-     <button className="closeBtn" onClick={hideModal}>
-       X
-     </button>
-   </header>
-  </Modal> */
-}
 },{"react":"node_modules/react/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -28646,7 +28547,204 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./modal.css":"modal.css","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"FilterComponents.js":[function(require,module,exports) {
+},{"./modal.css":"modal.css","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"InputModalComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./index.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function InputModalsComponent(_ref) {
+  var gest = _ref.gest,
+      location = _ref.location;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "btns"
+  }, /*#__PURE__*/_react.default.createElement("select", {
+    className: "btn",
+    name: "input",
+    id: "input",
+    onChange: location
+  }, "Location", /*#__PURE__*/_react.default.createElement("option", {
+    value: "Helsinki"
+  }, "Helsinki"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Turku"
+  }, "Turku"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Vaasa"
+  }, "Vaasa"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Oulu"
+  }, "Oulu")), /*#__PURE__*/_react.default.createElement("input", _defineProperty({
+    className: "btn btnInp",
+    type: "number",
+    placeholder: "Helsinki, Finland",
+    onChange: gest
+  }, "placeholder", "Add guests")), /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit",
+    className: "btn button-default"
+  }, /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "#EB5757",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+  })), "Search")));
+}
+
+var _default = InputModalsComponent;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./index.css":"index.css"}],"Modal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _InputModalComponent = _interopRequireDefault(require("./InputModalComponent.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Modal = function Modal(props) {
+  var show = props.show,
+      closeModal = props.closeModal;
+  var showHideClassName = show ? "modal display-block" : "modal display-none";
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: showHideClassName
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-main"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: closeModal
+  }, "X")), /*#__PURE__*/_react.default.createElement(_InputModalComponent.default, null)));
+};
+
+var _default = Modal;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./InputModalComponent.js":"InputModalComponent.js"}],"FormComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Modal = _interopRequireDefault(require("./Modal"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function FormComponents(_ref) {
+  var location = _ref.location,
+      gest = _ref.gest;
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      show = _useState2[0],
+      setShow = _useState2[1];
+
+  var openModal = function openModal(e) {
+    e.preventDefault();
+    setShow(true);
+  };
+
+  var closeModal = function closeModal() {
+    return setShow(false);
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "form"
+  }, /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "24",
+    fill: "#EB5757",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+  })), "Windbnb"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "btns"
+  }, /*#__PURE__*/_react.default.createElement("select", {
+    key: location.title,
+    className: "btn",
+    name: location.city,
+    id: location.city,
+    onChange: location
+  }, "Location", /*#__PURE__*/_react.default.createElement("option", {
+    value: "Helsinki"
+  }, "Helsinki"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Turku"
+  }, "Turku"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Vaasa"
+  }, "Vaasa"), /*#__PURE__*/_react.default.createElement("option", {
+    value: "Oulu"
+  }, "Oulu")), /*#__PURE__*/_react.default.createElement("input", _defineProperty({
+    className: "btn btnInp",
+    type: "number",
+    placeholder: "Helsinki, Finland",
+    onChange: gest
+  }, "placeholder", "Add guests")), /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit",
+    className: "btn button-default",
+    style: {
+      backgroundColor: "white"
+    },
+    onClick: openModal
+  }, /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "#EB5757",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+  })))), /*#__PURE__*/_react.default.createElement(_Modal.default, {
+    closeModal: closeModal,
+    show: show
+  }));
+}
+
+var _default = FormComponents;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Modal":"Modal.js"}],"FilterComponents.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28722,7 +28820,9 @@ function FilterComponent() {
 
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement(_FormComponent.default, (_React$createElement = {
     location: location
-  }, _defineProperty(_React$createElement, "location", handleLocation), _defineProperty(_React$createElement, "gest", handleGest), _React$createElement))), /*#__PURE__*/_react.default.createElement("div", {
+  }, _defineProperty(_React$createElement, "location", handleLocation), _defineProperty(_React$createElement, "gest", handleGest), _React$createElement))), /*#__PURE__*/_react.default.createElement("header", {
+    className: "myheading"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland"), /*#__PURE__*/_react.default.createElement("span", null, "12+ Stays")), /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, gest || location ? data.map(function (location) {
     return /*#__PURE__*/_react.default.createElement(_MainPlace.default, _extends({
@@ -28789,9 +28889,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("header", {
-        className: "myheading"
-      }, /*#__PURE__*/_react.default.createElement("h2", null, "Stays in Finland"), /*#__PURE__*/_react.default.createElement("span", null, "12+ Stays")), /*#__PURE__*/_react.default.createElement(_FilterComponents.default, null));
+      return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement(_FilterComponents.default, null));
     }
   }]);
 

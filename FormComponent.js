@@ -1,51 +1,58 @@
-import React from "react";
-// import Modal from "./Modal";
+import React, { useState } from "react";
+import Modal from "./Modal";
 
 function FormComponents({ location, gest }) {
-  return (
-    <div>
-      <div>
-        <label>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24"
-            fill="#EB5757"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
-          </svg>
-          Windbnb
-        </label>
+  const [show, setShow] = useState(false);
 
-        <div className="btns">
-          <select
-            key={location.title}
-            className="btn"
-            name={location.city}
-            id={location.city}
-            onChange={location}
-          >
-            Location
-            <option value="Helsinki">Helsinki</option>
-            <option value="Turku">Turku</option>
-            <option value="Vaasa">Vaasa</option>
-            <option value="Oulu">Oulu</option>
-          </select>
-          )
-          <input
-            className="btn"
-            type="number"
-            placeholder="Helsinki, Finland"
-            onChange={gest}
-            placeholder="Add guests"
-          />
-        </div>
+  const openModal = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+  const closeModal = () => setShow(false);
+
+  return (
+    <div className="form">
+      <label>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          fill="#EB5757"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+        </svg>
+        Windbnb
+      </label>
+
+      <div className="btns">
+        <select
+          key={location.title}
+          className="btn"
+          name={location.city}
+          id={location.city}
+          onChange={location}
+        >
+          Location
+          <option value="Helsinki">Helsinki</option>
+          <option value="Turku">Turku</option>
+          <option value="Vaasa">Vaasa</option>
+          <option value="Oulu">Oulu</option>
+        </select>
+
+        <input
+          className="btn btnInp"
+          type="number"
+          placeholder="Helsinki, Finland"
+          onChange={gest}
+          placeholder="Add guests"
+        />
         <button
           type="submit"
-          className="btn"
+          className="btn button-default"
           style={{ backgroundColor: "white" }}
+          onClick={openModal}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -60,39 +67,11 @@ function FormComponents({ location, gest }) {
         </button>
       </div>
 
+      <Modal 
+      closeModal={closeModal}
+      show={show} />
     </div>
   );
 }
 
 export default FormComponents;
-
-
-
-// const modals = document.createElement("div.modal");
-// document.body.appendChild(modals);
-
-  // state = {
-  //   show: false,
-  //   class: "",
-  //   value: "",
-  // };
-
-  // const  showModal = (e) => {
-  //     e.preventDefault();
-  //     console.log("Open modal");
-  //     setState({ show: true, class: "open" });
-  //   };
-
-  // const  hideModal = (e) => {
-  //     e.preventDefault();
-  //     console.log("close modal");
-  //     setState({ show: false });
-  //   };
-      {/* <Modal handleClose={hideModal}>
-        <header className="modals-heading">
-          <h4>Edit your search</h4>
-          <button className="closeBtn" onClick={hideModal}>
-            X
-          </button>
-        </header>
-      </Modal> */}

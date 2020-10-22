@@ -1,16 +1,20 @@
 import React from "react";
-import "./index.css";
+import InputModalComponent from "./InputModalComponent.js";
 
-const Modal = ({ show, children}) => {
+const Modal = (props) => {
+  const { show, closeModal } = props;
+
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
-        {children}
-        <div className="form">
+      <div className="modal-main">
+        <div>
+          <p>Edit your search</p>
+          <button onClick={closeModal}>X</button>
         </div>
-      </section>
+        <InputModalComponent />
+      </div>
     </div>
   );
 };

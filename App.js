@@ -11,11 +11,6 @@ class App extends React.Component {
     return (
       <section>
 
-        <header className="myheading">
-          <h2>Stays in Finland</h2>
-          <span>12+ Stays</span>
-        </header>
-
         <FilterComponent />
       
       </section>

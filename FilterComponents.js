@@ -32,20 +32,24 @@ function FilterComponent() {
   return (
     <div>
       <form>
-
         <FormComponents
           location={location}
           location={handleLocation}
           gest={handleGest}
         />
-
       </form>
+      
+      <header className="myheading">
+        <h2>Stays in Finland</h2>
+        <span>12+ Stays</span>
+      </header>
 
       <div className="container">
         {gest || location
           ? data.map((location) => <Place key={location.title} {...location} />)
           : stayData.map((gest) => <Place key={gest.title} {...gest} />)}
       </div>
+
     </div>
   );
 }
