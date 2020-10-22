@@ -3,6 +3,27 @@ import "./index.css";
 
 function InputModalsComponent({ gest, location }) {
   
+  // const [gest, setGest] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [data, setData] = useState([]);
+
+  // const handleLocation = (e) => {
+  //   setLocation(e.target.value);
+  //   setData(
+  //     stayData.filter((data) => {
+  //       return data.city.toLowerCase() === e.target.value.toLowerCase();
+  //     })
+  //   );
+  // };
+
+  // const handleGest = (e) => {
+  //   setGest(e.target.value);
+  //   setData(
+  //     stayData.filter((data) => {
+  //       return data.maxGuests.toString() === e.target.value;
+  //     })
+  //   );
+  // };
   return (
     <div className="btns">
       <select className="btn" name="input" id="input" onChange={location}>

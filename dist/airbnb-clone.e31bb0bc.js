@@ -28566,6 +28566,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 function InputModalsComponent(_ref) {
   var gest = _ref.gest,
       location = _ref.location;
+  // const [gest, setGest] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [data, setData] = useState([]);
+  // const handleLocation = (e) => {
+  //   setLocation(e.target.value);
+  //   setData(
+  //     stayData.filter((data) => {
+  //       return data.city.toLowerCase() === e.target.value.toLowerCase();
+  //     })
+  //   );
+  // };
+  // const handleGest = (e) => {
+  //   setGest(e.target.value);
+  //   setData(
+  //     stayData.filter((data) => {
+  //       return data.maxGuests.toString() === e.target.value;
+  //     })
+  //   );
+  // };
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "btns"
   }, /*#__PURE__*/_react.default.createElement("select", {
