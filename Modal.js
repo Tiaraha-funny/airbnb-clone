@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-const Modal = ({ show, children, selectBox, searchBox }) => {
+const Modal = ({ show, children}) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
@@ -9,8 +9,6 @@ const Modal = ({ show, children, selectBox, searchBox }) => {
       <section className="modal-main">
         {children}
         <div className="form">
-        {selectBox}
-        {searchBox}
         </div>
       </section>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
-import StaysComponent from "./StaysComponents";
-import FormComponents from "./FormComponent";
+import FilterComponent from "./FilterComponents";
+// import SearchFilter from "./filterExampleComponent";
+// import FormComponents from "./FormComponent";
 import "./index.css";
 
 
@@ -15,7 +16,7 @@ class App extends React.Component {
           <span>12+ Stays</span>
         </header>
 
-        <StaysComponent />
+        <FilterComponent />
       
       </section>
     );
