@@ -28470,7 +28470,53 @@ function Place(props) {
 
 var _default = Place;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"icons/vector.svg":[function(require,module,exports) {
+module.exports = "/vector.a0aa53c8.svg";
+},{}],"DropDownSelection.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _vector = _interopRequireDefault(require("./icons/vector.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function DropDownSelection(props) {
+  var dropSelect = props.dropSelect,
+      closeSelect = props.closeSelect;
+  var showAndHideClassName = dropSelect ? "dropDown display-block" : "dropdown display-none";
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: showAndHideClassName
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "main-drop",
+    onMouseLeave: closeSelect
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    value: "Helsinki"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _vector.default
+  }), " Helsinki"), /*#__PURE__*/_react.default.createElement("span", {
+    value: "Turku"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _vector.default
+  }), " Turku"), /*#__PURE__*/_react.default.createElement("span", {
+    value: "Vaasa"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _vector.default
+  }), " Vaasa"), /*#__PURE__*/_react.default.createElement("span", {
+    value: "Oulu"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _vector.default
+  }), " Oulu")));
+}
+
+var _default = DropDownSelection;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./icons/vector.svg":"icons/vector.svg"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -28555,17 +28601,36 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
+
+var _DropDownSelection = _interopRequireDefault(require("./DropDownSelection"));
 
 require("./index.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function InputModalsComponent(_ref) {
   var gest = _ref.gest,
       location = _ref.location;
+
   // const [gest, setGest] = useState("");
   // const [location, setLocation] = useState("");
   // const [data, setData] = useState([]);
@@ -28585,22 +28650,28 @@ function InputModalsComponent(_ref) {
   //     })
   //   );
   // };
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      dropSelect = _useState2[0],
+      setDropSelect = _useState2[1];
+
+  var openSelect = function openSelect() {
+    return setDropSelect(true);
+  };
+
+  var closeSelect = function closeSelect() {
+    return setDropSelect(false);
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "btns"
-  }, /*#__PURE__*/_react.default.createElement("select", {
-    className: "btn",
-    name: "input",
-    id: "input",
-    onChange: location
-  }, "Location", /*#__PURE__*/_react.default.createElement("option", {
-    value: "Helsinki"
-  }, "Helsinki"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Turku"
-  }, "Turku"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Vaasa"
-  }, "Vaasa"), /*#__PURE__*/_react.default.createElement("option", {
-    value: "Oulu"
-  }, "Oulu")), /*#__PURE__*/_react.default.createElement("input", _defineProperty({
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "btn"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: openSelect
+  }, " Location "), /*#__PURE__*/_react.default.createElement(_DropDownSelection.default, {
+    dropSelect: dropSelect
+  })), /*#__PURE__*/_react.default.createElement("input", _defineProperty({
     className: "btn btnInp",
     type: "number",
     placeholder: "Helsinki, Finland",
@@ -28624,7 +28695,7 @@ function InputModalsComponent(_ref) {
 
 var _default = InputModalsComponent;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./index.css":"index.css"}],"Modal.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./DropDownSelection":"DropDownSelection.js","./index.css":"index.css"}],"Modal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28957,7 +29028,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55846" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49804" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
