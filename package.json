@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Tiaraha-funny/airbnb-clone#readme",
   "dependencies": {
+    "icons": "^1.0.0",
+    "logo.svg": "^1.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   }
