@@ -5,11 +5,61 @@ import "./css/index.css";
 
 function StayComponents() {
 
-  const filterStays = stays.filter((location) => location.city.toLowerCase().includes(stays.toLowerCase()));
+  const [ filter, setFilter ] = useState([]);
 
   if(type === "checkbox") {
     filterStays();
   }
+
+    const handleLocation = (e) => {
+    setLocation(e.target.value);
+    setData(
+      stayData.filter((data) => {
+        return data.city.toLowerCase() === e.target.value.toLowerCase();
+      })
+    );
+  };
+
+  const handleGest = (e) => {
+    setGest(e.target.value);
+    setData(
+      stayData.filter((data) => {
+        return data.maxGuests.toString() === e.target.value;
+      })
+    );
+  };
+  
+  const handleCheckFilter = e => {
+
+    const handleLocation = (e) => {
+    setLocation(e.target.value);
+    setData(
+      stayData.filter((data) => {
+        return data.city.toLowerCase() === e.target.value.toLowerCase();
+      })
+    );
+  };
+
+  const handleGest = (e) => {
+    setGest(e.target.value);
+    setData(
+      stayData.filter((data) => {
+        return data.maxGuests.toString() === e.target.value;
+      })
+    );
+  };
+  
+  setFilter(e.target.value);
+  
+    const handleLocation = (e) => {
+    setLocation(e.target.value);
+    setData(
+      stayData.filter((data) => {
+        return data.city.toLowerCase() === e.target.value.toLowerCase();
+      })
+    );
+  }
+
 
   return (
     <section>
@@ -17,18 +67,11 @@ function StayComponents() {
         <h1>Stay in Filand</h1>
         <p>12+ stays</p>
       </header>
-      {stays.map((stay) => {
-        return (
-          <article className="content" key={stay.title}>
-            <img src={stay.photo} alt={stay.title} />
-            <div className="main__content">
-            <div>{stay.type}</div>
-            <div><img className="star" src={star} /> {stay.rating}</div>
-            </div>
-            <div>{stay.title}</div>
-          </article>
-        );
-      })}
+      <div className="container">
+        {gest || location
+          ? data.map((location) => <Place key={location.title} {...location} />)
+          : stayData.map((gest) => <Place key={gest.title} {...gest} />)}
+      </div>
     </section>
   );
 }
