@@ -28361,7 +28361,84 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/Header.js":[function(require,module,exports) {
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/css/modal.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Components/FormModalComponents.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function FormModalComponents() {
+  var _useState = (0, _react.useState)({
+    Helsinki: false,
+    Turku: false,
+    Oudo: false,
+    Vaasa: false
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      location = _useState2[0],
+      setLocation = _useState2[1];
+
+  var handleFilter = function handleFilter(e) {
+    var _e$target = e.target,
+        name = _e$target.name,
+        value = _e$target.value,
+        type = _e$target.type,
+        checked = _e$target.checked;
+    type === "checkbox" ? setLocation(_defineProperty({}, name, checked)) : setLocation(_defineProperty({}, name, value));
+  };
+
+  console.log(location.Helsinki);
+  return /*#__PURE__*/_react.default.createElement("form", {
+    onChange: handleFilter
+  }, /*#__PURE__*/_react.default.createElement("label", null, "Location"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("p", null, location.Helsinki ? "Helsinki, Finland" : "", location.Turku ? "Turku, Finland" : "", location.Oudo ? "Oudo, Finland" : "", location.Vaasa ? "Vaasa, Finland" : ""), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    name: "Helsinki",
+    value: location.Helsinki
+  }), "Helsinki, Finland", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    name: "Turku",
+    value: location.Turku
+  }), "Turku, Finland", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    name: "Oudo",
+    value: location.Oudo
+  }), "Oudo, Finland", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("input", {
+    type: "checkbox",
+    name: "Vaasa",
+    value: location.Vaasa
+  }), "Vaasa, Finland", /*#__PURE__*/_react.default.createElement("br", null));
+}
+
+var _default = FormModalComponents;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"Components/ModalComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28371,15 +28448,78 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+require("./css/modal.css");
+
+var _FormModalComponents = _interopRequireDefault(require("./FormModalComponents"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ModalComponent(_ref) {
+  var on = _ref.on,
+      modalOff = _ref.modalOff;
+  var modaClassName = on ? "open" : "close";
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: modaClassName
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal-container"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "Edit your search"), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: modalOff,
+    className: "closeBnt"
+  }, "X")), /*#__PURE__*/_react.default.createElement(_FormModalComponents.default, null)));
+}
+
+var _default = ModalComponent;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./css/modal.css":"Components/css/modal.css","./FormModalComponents":"Components/FormModalComponents.js"}],"Components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
 var _logo = _interopRequireDefault(require("./icons/logo.svg"));
 
 var _search = _interopRequireDefault(require("./icons/search.svg"));
 
 require("./css/index.css");
 
+var _ModalComponent = _interopRequireDefault(require("./ModalComponent"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function Header() {
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      on = _useState2[0],
+      setOn = _useState2[1];
+
+  var modalOn = function modalOn() {
+    setOn(true);
+  };
+
+  var modalOff = function modalOff() {
+    setOn(false);
+  };
+
   return /*#__PURE__*/_react.default.createElement("header", {
     className: "headings"
   }, /*#__PURE__*/_react.default.createElement("h1", {
@@ -28389,19 +28529,25 @@ function Header() {
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "heading__buttons--decoration"
   }, /*#__PURE__*/_react.default.createElement("button", {
-    className: "first__button"
+    className: "first__button",
+    onClick: modalOn
   }, "Helsinki, Finland"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "second__button"
+    className: "second__button",
+    onClick: modalOn
   }, "Add guest"), /*#__PURE__*/_react.default.createElement("button", {
     className: "last__button"
   }, /*#__PURE__*/_react.default.createElement("img", {
     src: _search.default
-  }))));
+  }))), /*#__PURE__*/_react.default.createElement(_ModalComponent.default, {
+    modalOn: modalOn,
+    modalOff: modalOff,
+    on: on
+  }));
 }
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./icons/logo.svg":"Components/icons/logo.svg","./icons/search.svg":"Components/icons/search.svg","./css/index.css":"Components/css/index.css"}],"Components/stays.json":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./icons/logo.svg":"Components/icons/logo.svg","./icons/search.svg":"Components/icons/search.svg","./css/index.css":"Components/css/index.css","./ModalComponent":"Components/ModalComponent.js"}],"Components/stays.json":[function(require,module,exports) {
 module.exports = [{
   "city": "Helsinki",
   "country": "Finland",
@@ -28543,6 +28689,8 @@ module.exports = [{
   "beds": 3,
   "photo": "https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80"
 }];
+},{}],"Components/icons/star.svg":[function(require,module,exports) {
+module.exports = "/star.eccefbf9.svg";
 },{}],"Components/StayComponents.js":[function(require,module,exports) {
 "use strict";
 
@@ -28555,6 +28703,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _stays = _interopRequireDefault(require("./stays.json"));
 
+var _star = _interopRequireDefault(require("./icons/star.svg"));
+
 require("./css/index.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28563,32 +28713,36 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function StayComponents() {
-  var _useState = (0, _react.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      stays = _useState2[0],
-      setStays = _useState2[1];
+  var filterStays = _stays.default.filter(function (location) {
+    return location.city.toLowerCase().includes(_stays.default.toLowerCase());
+  });
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("header", {
+  if (type === "checkbox") {
+    filterStays();
+  }
+
+  return /*#__PURE__*/_react.default.createElement("section", null, /*#__PURE__*/_react.default.createElement("header", {
     className: "main__heading"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Stay in Filand"), /*#__PURE__*/_react.default.createElement("p", null, "12+ stays")));
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Stay in Filand"), /*#__PURE__*/_react.default.createElement("p", null, "12+ stays")), _stays.default.map(function (stay) {
+    return /*#__PURE__*/_react.default.createElement("article", {
+      className: "content",
+      key: stay.title
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: stay.photo,
+      alt: stay.title
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      className: "main__content"
+    }, /*#__PURE__*/_react.default.createElement("div", null, stay.type), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+      className: "star",
+      src: _star.default
+    }), " ", stay.rating)), /*#__PURE__*/_react.default.createElement("div", null, stay.title));
+  }));
 }
 
 var _default = StayComponents;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./stays.json":"Components/stays.json","./css/index.css":"Components/css/index.css"}],"Components/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./stays.json":"Components/stays.json","./icons/star.svg":"Components/icons/star.svg","./css/index.css":"Components/css/index.css"}],"Components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28689,7 +28843,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50515" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55555" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

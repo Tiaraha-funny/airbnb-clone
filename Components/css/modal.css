@@ -1,0 +1,26 @@
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
+}
+
+.modal-container {
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 300px;
+}
+
+.closeBnt {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+}
