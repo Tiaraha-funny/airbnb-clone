@@ -1,59 +1,29 @@
 import React, { useState } from "react";
 import stays from "./stays.json";
-import star from "./icons/star.svg";
+import Place from "./Place";
 import "./css/index.css";
+
+const stayData = stays;
 
 function StayComponents() {
 
   const [ filter, setFilter ] = useState([]);
+  const [ location, setLocation ] = useState("");
+  const [ gest, setGest ] = useState("");
 
-  if(type === "checkbox") {
-    filterStays();
-  }
-
-    const handleLocation = (e) => {
-    setLocation(e.target.value);
-    setData(
-      stayData.filter((data) => {
-        return data.city.toLowerCase() === e.target.value.toLowerCase();
-      })
-    );
-  };
 
   const handleGest = (e) => {
     setGest(e.target.value);
-    setData(
+    setFilter(
       stayData.filter((data) => {
         return data.maxGuests.toString() === e.target.value;
       })
     );
   };
   
-  const handleCheckFilter = e => {
-
     const handleLocation = (e) => {
     setLocation(e.target.value);
-    setData(
-      stayData.filter((data) => {
-        return data.city.toLowerCase() === e.target.value.toLowerCase();
-      })
-    );
-  };
-
-  const handleGest = (e) => {
-    setGest(e.target.value);
-    setData(
-      stayData.filter((data) => {
-        return data.maxGuests.toString() === e.target.value;
-      })
-    );
-  };
-  
-  setFilter(e.target.value);
-  
-    const handleLocation = (e) => {
-    setLocation(e.target.value);
-    setData(
+    setFilter(
       stayData.filter((data) => {
         return data.city.toLowerCase() === e.target.value.toLowerCase();
       })
@@ -69,7 +39,7 @@ function StayComponents() {
       </header>
       <div className="container">
         {gest || location
-          ? data.map((location) => <Place key={location.title} {...location} />)
+          ? filter.map((location) => <Place key={location.title} {...location} />)
           : stayData.map((gest) => <Place key={gest.title} {...gest} />)}
       </div>
     </section>

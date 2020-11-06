@@ -1,14 +1,15 @@
 import React from "react";
+import star from "./icons/star.svg";
 
-function Place() {
+function Place(props) {
     return (
-        <article className="content" key={stay.title}>
-          <img src={stay.photo} alt={stay.title} />
+        <article className="content" key={props.title}>
+          <img src={props.photo} alt={props.title} />
           <div className="main__content">
-          <div>{stay.type}</div>
-          <div><img className="star" src={star} /> {stay.rating}</div>
+          <div>{props.type}</div>
+          <div><img className="star" src={star} /> {props.rating}</div>
           </div>
-          <div>{stay.title}</div>
+          <div>{props.title}</div>
         </article>
       );
 }

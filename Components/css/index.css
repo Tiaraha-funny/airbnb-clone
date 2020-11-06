@@ -74,3 +74,13 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.content {
+    width: 90%;
+    height: 80%;
+}

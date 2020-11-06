@@ -28,6 +28,7 @@ function FormModalComponents() {
         {location.Oudo ? "Oudo, Finland" : ""}
         {location.Vaasa ? "Vaasa, Finland" : ""}
       </p>
+      
       <input type="checkbox" name="Helsinki" value={location.Helsinki} />
       Helsinki, Finland
       <br />
